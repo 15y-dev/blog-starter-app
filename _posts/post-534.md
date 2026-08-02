@@ -1,0 +1,60 @@
+---
+title: "星界神話の星辰啓示録"
+excerpt: "2026年7月2日のアップデートで新しい強化コンテンツ「星辰啓示録」が追加されました。 https://www.xlegend.com/online/astraltale/ja/newsin.php?nid=29878 読み方は「せいしんけいじろく」ですね。 AIに意味を聞いてみたら「星辰」は星や星座のことで「啓示録」は神や天からのメッセージを記録したものらしいです。 名前に深い意味はないと思われ..."
+coverImage: "/assets/images/image-41.png"
+date: "2026-07-09T07:10:30.000Z"
+author:
+  name: のい太
+  picture: /assets/blog/authors/default.jpeg
+ogImage:
+  url: "/assets/images/image-41.png"
+category: "星界神話"
+---
+
+2026年7月2日のアップデートで新しい強化コンテンツ「星辰啓示録」が追加されました。
+
+[https://www.x-legend.com/online/astraltale/ja/news_in.php?nid=29878](https://www.x-legend.com/online/astraltale/ja/news_in.php?nid=29878)
+
+読み方は「せいしんけいじろく」ですね。
+
+AIに意味を聞いてみたら「星辰」は星や星座のことで「啓示録」は神や天からのメッセージを記録したものらしいです。
+
+名前に深い意味はないと思われます。
+
+## 星辰啓示録
+
+ゲーム画面右下のアイコンから専用画面を開くことができます。
+
+![](/assets/images/image-41.png)
+
+星辰啓示録画面はこんな感じ。
+
+![](/assets/images/image-42.png)
+
+この中にまだコレクションしていない装備があれば追加することができます。
+
+注意点としては追加した装備は取り出せないので大切な装備はよく考えてから入れること。
+
+セット項目の全ての装備を追加すると能力強化が発動します。
+
+## 古代遺跡
+
+セイルーン王城から新ダンジョン「古代遺跡」に行くことができます。
+
+![](/assets/images/image-43.png)
+
+古代遺跡では過去のシーズン装備箱がドロップするので、ここで装備集めて星辰啓示録に追加してねってことだと思います。
+
+古代遺跡だとシーズン1～3までの装備箱が拾えるようになってます。
+
+今後増えていく感じだと思います。
+
+## メインクエスト装備
+
+2026年7月8日のアップデートで星辰啓示録にメインクエスト装備が追加されました。
+
+[https://www.x-legend.com/online/astraltale/ja/news_in.php?nid=29944](https://www.x-legend.com/online/astraltale/ja/news_in.php?nid=29944)
+
+やることは同じで、今回はメインクエストで落ちる装備が星辰啓示録に追加できるようになりました。
+
+今まで捨てていた装備がコレクションできるようになったので、IDを周回するモチベもぐんぐんうなぎ上りになること間違いなしですね。

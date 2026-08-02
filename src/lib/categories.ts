@@ -5,8 +5,11 @@ export type Category = {
 
 /** カテゴリーマスター定義（この配列の順番が表示順になります） */
 export const CATEGORIES: Category[] = [
-  { slug: "development", name: "開発" },
-  { slug: "general", name: "雑談" },
+  { slug: "astraltale", name: "星界神話" },
+  { slug: "ff15", name: "FF15" },
+  { slug: "endfield", name: "エンドフィールド" },
+  { slug: "zenless", name: "ゼンゼロ" },
+  { slug: "watched", name: "見たよ" },
 ];
 
 /** スラッグからカテゴリーを取得 */
