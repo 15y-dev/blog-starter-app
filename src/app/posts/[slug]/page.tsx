@@ -7,6 +7,7 @@ import Container from "@/app/_components/container";
 import Header from "@/app/_components/header";
 import { PostBody } from "@/app/_components/post-body";
 import { PostHeader } from "@/app/_components/post-header";
+import Sidebar from "@/app/_components/sidebar";
 
 export default async function Post(props: Params) {
   const params = await props.params;
@@ -22,15 +23,18 @@ export default async function Post(props: Params) {
     <main>
       <Container>
         <Header />
-        <article className="mb-32">
-          <PostHeader
-            title={post.title}
-            coverImage={post.coverImage}
-            date={post.date}
-            author={post.author}
-          />
-          <PostBody content={content} />
-        </article>
+        <div className="flex flex-col lg:flex-row gap-12">
+          <article className="flex-1 min-w-0 mb-32">
+            <PostHeader
+              title={post.title}
+              coverImage={post.coverImage}
+              date={post.date}
+              author={post.author}
+            />
+            <PostBody content={content} />
+          </article>
+          <Sidebar />
+        </div>
       </Container>
     </main>
   );
