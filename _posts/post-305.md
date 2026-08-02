@@ -19,8 +19,6 @@ category: "星界神話"
 
 皆さまはこちらのアイナパズルはお持ちでしょうか？
 
-![](/assets/images/image-31.png)
-
 えっ！？お持ちでは無いと？
 
 それは大変にいけませんね。
@@ -52,4 +50,3 @@ ASTRALPUZZLE
 | シリアルコード | 受け取れる期限 | ソース元 |
 | --- | --- | --- |
 | ASTRALPUZZLE | 2026年12月31日 | [公式](https://www.x-legend.com/online/astraltale/ja/news_in.php?nid=29617) |
-|  |  |  |

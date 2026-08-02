@@ -11,6 +11,7 @@ import Sidebar from "@/app/_components/sidebar";
 type Params = {
   params: Promise<{
     yearMonth: string;
+    num: string;
   }>;
 };
 
@@ -26,19 +27,19 @@ function getArchivePosts(yearMonth: string, page: number) {
   return { posts, totalPages, filteredTotal: filteredPosts.length };
 }
 
-export default async function ArchivePage(props: Params) {
-  const params = await props.params;
-  const { yearMonth } = params;
+export default async function ArchivePageRoute(props: Params) {
+  const { yearMonth, num } = await props.params;
+  const pageNum = parseInt(num, 10);
 
   const match = yearMonth.match(/^(\d{4})-(\d{2})$/);
-  if (!match) {
+  if (!match || isNaN(pageNum) || pageNum < 1) {
     return notFound();
   }
 
   const [, year, month] = match;
-  const { posts, totalPages } = getArchivePosts(yearMonth, 1);
+  const { posts, totalPages } = getArchivePosts(yearMonth, pageNum);
 
-  if (posts.length === 0) {
+  if (pageNum > totalPages || posts.length === 0) {
     return notFound();
   }
 
@@ -53,7 +54,7 @@ export default async function ArchivePage(props: Params) {
           <div className="flex-1 min-w-0">
             <MoreStories posts={posts} />
             <Pagination
-              currentPage={1}
+              currentPage={pageNum}
               totalPages={totalPages}
               basePath={`/archives/${yearMonth}`}
             />
@@ -66,8 +67,7 @@ export default async function ArchivePage(props: Params) {
 }
 
 export async function generateMetadata(props: Params): Promise<Metadata> {
-  const params = await props.params;
-  const { yearMonth } = params;
+  const { yearMonth, num } = await props.params;
   const match = yearMonth.match(/^(\d{4})-(\d{2})$/);
 
   if (!match) {
@@ -76,20 +76,27 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
 
   const [, year, month] = match;
   return {
-    title: `${year}年${parseInt(month)}月の記事`,
+    title: `${year}年${parseInt(month)}月の記事 - ページ${num}`,
   };
 }
 
 export async function generateStaticParams() {
   const allPosts = getAllPosts();
-  const yearMonths = new Set<string>();
+  const yearMonthMap = new Map<string, number>();
 
   allPosts.forEach((post) => {
     const date = parseISO(post.date);
-    yearMonths.add(format(date, "yyyy-MM"));
+    const ym = format(date, "yyyy-MM");
+    yearMonthMap.set(ym, (yearMonthMap.get(ym) || 0) + 1);
   });
 
-  return Array.from(yearMonths).map((yearMonth) => ({
-    yearMonth,
-  }));
+  const params: { yearMonth: string; num: string }[] = [];
+  yearMonthMap.forEach((count, yearMonth) => {
+    const totalPages = Math.ceil(count / POSTS_PER_PAGE);
+    for (let i = 1; i <= totalPages; i++) {
+      params.push({ yearMonth, num: String(i) });
+    }
+  });
+
+  return params;
 }

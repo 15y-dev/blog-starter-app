@@ -1,13 +1,13 @@
 ---
 title: "星界神話の星辰啓示録"
 excerpt: "2026年7月2日のアップデートで新しい強化コンテンツ「星辰啓示録」が追加されました。 https://www.xlegend.com/online/astraltale/ja/newsin.php?nid=29878 読み方は「せいしんけいじろく」ですね。 AIに意味を聞いてみたら「星辰」は星や星座のことで「啓示録」は神や天からのメッセージを記録したものらしいです。 名前に深い意味はないと思われ..."
-coverImage: "/assets/images/image-41.png"
+coverImage: "/assets/images/image-42.png"
 date: "2026-07-09T07:10:30.000Z"
 author:
   name: のい太
   picture: /assets/blog/authors/default.jpeg
 ogImage:
-  url: "/assets/images/image-41.png"
+  url: "/assets/images/image-42.png"
 category: "星界神話"
 ---
 

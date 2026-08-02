@@ -1,13 +1,12 @@
 import Container from "@/app/_components/container";
 import Header from "@/app/_components/header";
 import { MoreStories } from "@/app/_components/more-stories";
+import { Pagination } from "@/app/_components/pagination";
 import Sidebar from "@/app/_components/sidebar";
-import { getAllPosts } from "@/lib/api";
+import { getPaginatedPosts } from "@/lib/api";
 
 export default function Index() {
-  const allPosts = getAllPosts();
-
-  const morePosts = allPosts.slice();
+  const { posts, totalPages, currentPage } = getPaginatedPosts(1);
 
   return (
     <main>
@@ -15,7 +14,8 @@ export default function Index() {
         <Header />
         <div className="flex flex-col lg:flex-row gap-12">
           <div className="flex-1 min-w-0">
-            <MoreStories posts={morePosts} />
+            <MoreStories posts={posts} />
+            <Pagination currentPage={currentPage} totalPages={totalPages} />
           </div>
           <Sidebar />
         </div>

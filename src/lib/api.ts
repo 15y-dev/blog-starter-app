@@ -18,6 +18,8 @@ export function getPostBySlug(slug: string) {
   return { ...data, slug: realSlug, content } as Post;
 }
 
+export const POSTS_PER_PAGE = 6;
+
 export function getAllPosts(): Post[] {
   const slugs = getPostSlugs();
   const posts = slugs
@@ -25,4 +27,12 @@ export function getAllPosts(): Post[] {
     // sort posts by date in descending order
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;
+}
+
+export function getPaginatedPosts(page: number) {
+  const allPosts = getAllPosts();
+  const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
+  const start = (page - 1) * POSTS_PER_PAGE;
+  const posts = allPosts.slice(start, start + POSTS_PER_PAGE);
+  return { posts, totalPages, currentPage: page };
 }

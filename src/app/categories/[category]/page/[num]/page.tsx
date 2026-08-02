@@ -11,6 +11,7 @@ import Sidebar from "@/app/_components/sidebar";
 type Params = {
   params: Promise<{
     category: string;
+    num: string;
   }>;
 };
 
@@ -25,17 +26,18 @@ function getCategoryPosts(categoryName: string, page: number) {
   return { posts, totalPages };
 }
 
-export default async function CategoryPage(props: Params) {
-  const params = await props.params;
-  const categoryDef = getCategoryBySlug(params.category);
+export default async function CategoryPageRoute(props: Params) {
+  const { category, num } = await props.params;
+  const pageNum = parseInt(num, 10);
+  const categoryDef = getCategoryBySlug(category);
 
-  if (!categoryDef) {
+  if (!categoryDef || isNaN(pageNum) || pageNum < 1) {
     return notFound();
   }
 
-  const { posts, totalPages } = getCategoryPosts(categoryDef.name, 1);
+  const { posts, totalPages } = getCategoryPosts(categoryDef.name, pageNum);
 
-  if (posts.length === 0) {
+  if (pageNum > totalPages || posts.length === 0) {
     return notFound();
   }
 
@@ -50,9 +52,9 @@ export default async function CategoryPage(props: Params) {
           <div className="flex-1 min-w-0">
             <MoreStories posts={posts} />
             <Pagination
-              currentPage={1}
+              currentPage={pageNum}
               totalPages={totalPages}
-              basePath={`/categories/${params.category}`}
+              basePath={`/categories/${category}`}
             />
           </div>
           <Sidebar />
@@ -63,20 +65,29 @@ export default async function CategoryPage(props: Params) {
 }
 
 export async function generateMetadata(props: Params): Promise<Metadata> {
-  const params = await props.params;
-  const categoryDef = getCategoryBySlug(params.category);
+  const { category, num } = await props.params;
+  const categoryDef = getCategoryBySlug(category);
 
   if (!categoryDef) {
     return { title: "カテゴリー" };
   }
 
   return {
-    title: `カテゴリー: ${categoryDef.name}`,
+    title: `カテゴリー: ${categoryDef.name} - ページ${num}`,
   };
 }
 
 export async function generateStaticParams() {
-  return CATEGORIES.map((category) => ({
-    category: category.slug,
-  }));
+  const allPosts = getAllPosts();
+  const params: { category: string; num: string }[] = [];
+
+  CATEGORIES.forEach((cat) => {
+    const count = allPosts.filter((post) => post.category === cat.name).length;
+    const totalPages = Math.ceil(count / POSTS_PER_PAGE);
+    for (let i = 1; i <= totalPages; i++) {
+      params.push({ category: cat.slug, num: String(i) });
+    }
+  });
+
+  return params;
 }
