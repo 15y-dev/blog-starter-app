@@ -3,9 +3,6 @@ title: "星界神話の日課"
 excerpt: "日本語で遊べなくなった星界神話ですが運営の神アップデートによって見事無事に復活しました。よかったねー 星界神話で何をしたらいいのか分かっていないそこの私に朗報です。 毎日やるといいことを私なりにまとめたのでぜひ参考にしてみてください。  ワールドクエスト とりあえず初めにワールドクエストは鉄則だね。 毎日最低5回、余裕があればMAXの10回終わらせるといいと思います。 フィールドに点在するキューブ..."
 coverImage: "/assets/images/vlcsnap-2026-06-27-10h22m36s175.png"
 date: "2026-06-27T01:37:33.000Z"
-author:
-  name: のい太
-  picture: /assets/blog/authors/default.jpeg
 ogImage:
   url: "/assets/images/vlcsnap-2026-06-27-10h22m36s175.png"
 category: "星界神話"

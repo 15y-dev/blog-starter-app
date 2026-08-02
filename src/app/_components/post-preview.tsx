@@ -1,4 +1,3 @@
-import { type Author } from "@/interfaces/author";
 import Link from "next/link";
 import CoverImage from "./cover-image";
 import DateFormatter from "./date-formatter";
@@ -8,7 +7,6 @@ type Props = {
   coverImage?: string;
   date: string;
   excerpt: string;
-  author: Author;
   slug: string;
 };
 

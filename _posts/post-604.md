@@ -3,9 +3,6 @@ title: "星界神話の歩み"
 excerpt: "この内容は旧星界神話ではなく、星界神話グローバル版の内容となっています。 旧星界神話はムーンラビットが運営しており、グローバル版はXLEGENDが運営しています。  年表 | 2023年8月29日 | 旧星界神話のサービス終了<brhttp://ss.moonrabi.jp/ | |  |  | | 2024年1月10日 | 星界神話グローバル版のサービス開始<brhttps://xlegend...."
 coverImage: ""
 date: "2026-07-14T01:10:19.000Z"
-author:
-  name: のい太
-  picture: /assets/blog/authors/default.jpeg
 ogImage:
   url: ""
 category: "星界神話"

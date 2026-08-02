@@ -3,9 +3,6 @@ title: "星界神話のシーズン制度"
 excerpt: "星界神話にはシーズン制度が導入されております。 私はまだよく分かってないので簡単な説明になってしまうのですが、2026年6月現在だとシーズン10まで進んでおり、セイルーン王城のオティアに話しかけることでクエストを受けたり、アイテム交換をすることができます。  ダンジョン攻略 デイリークエストが2つあるので、両方とも受けてノーマルダンジョンに潜るとよいでしょう。 シーズン10では異変ソラール荒野を攻..."
 coverImage: "/assets/images/image-24.png"
 date: "2026-06-28T01:41:44.000Z"
-author:
-  name: のい太
-  picture: /assets/blog/authors/default.jpeg
 ogImage:
   url: "/assets/images/image-24.png"
 category: "星界神話"
