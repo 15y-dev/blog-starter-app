@@ -30,9 +30,16 @@ export function getPostBySlug(slug: string) {
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
+  // ファイル名から日付を生成 (例: "20260628-1" → "2026-06-28T00:00:00.000Z")
+  const dateMatch = realSlug.match(/^(\d{4})(\d{2})(\d{2})/);
+  const date = dateMatch
+    ? `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}T00:00:00.000Z`
+    : data.date;
+
   return {
     ...data,
     slug: realSlug,
+    date,
     content,
     excerpt: generateExcerpt(content),
   } as Post;
