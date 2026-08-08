@@ -9,13 +9,33 @@ export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
 }
 
+function generateExcerpt(content: string, maxLength = 200): string {
+  const plainText = content
+    .replace(/!\[.*?\]\(.*?\)/g, "")
+    .replace(/\[([^\]]*)\]\(.*?\)/g, "$1")
+    .replace(/#{1,6}\s+/g, "")
+    .replace(/[*_~`>]/g, "")
+    .replace(/https?:\/\/\S+/g, "")
+    .replace(/\n+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  return plainText.length > maxLength
+    ? plainText.slice(0, maxLength) + "..."
+    : plainText;
+}
+
 export function getPostBySlug(slug: string) {
   const realSlug = slug.replace(/\.md$/, "");
   const fullPath = join(postsDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
-  return { ...data, slug: realSlug, content } as Post;
+  return {
+    ...data,
+    slug: realSlug,
+    content,
+    excerpt: generateExcerpt(content),
+  } as Post;
 }
 
 export const POSTS_PER_PAGE = 6;
