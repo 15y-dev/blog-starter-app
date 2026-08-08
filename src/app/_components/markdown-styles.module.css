@@ -34,6 +34,14 @@
   @apply bg-gray-800/30;
 }
 
+.markdown a {
+  @apply text-accent-link underline decoration-accent-link/30 underline-offset-2;
+}
+
+.markdown a:hover {
+  @apply text-accent-link-hover decoration-accent-link-hover/50;
+}
+
 .markdown img {
   cursor: zoom-in;
 }
