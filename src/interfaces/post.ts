@@ -7,6 +7,5 @@ export type Post = {
 
   content: string;
   category: string;
-  preview?: boolean;
   draft?: boolean;
 };
