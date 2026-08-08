@@ -10,6 +10,7 @@ export const CATEGORIES: Category[] = [
   { slug: "zenless", name: "ゼンゼロ" },
   { slug: "ff15", name: "FF15" },
   { slug: "elpis", name: "星落" },
+  { slug: "rabbit", name: "うさぎ" },
   { slug: "watched", name: "見たよ" },
 ];
 
