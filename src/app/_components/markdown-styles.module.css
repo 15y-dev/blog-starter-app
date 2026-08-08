@@ -33,3 +33,7 @@
 .markdown tr:nth-child(even) {
   @apply bg-gray-800/30;
 }
+
+.markdown img {
+  cursor: zoom-in;
+}
