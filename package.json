@@ -3,13 +3,15 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "convert:hls": "node scripts/convert-to-hls.mjs"
   },
   "dependencies": {
     "classnames": "^2.5.1",
     "date-fns": "^3.6.0",
     "feed": "^6.0.0",
     "gray-matter": "^4.0.3",
+    "hls.js": "^1.7.3",
     "lucide-react": "^1.28.0",
     "next": "latest",
     "react": "^19",

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useCallback, MouseEvent } from "react";
+import { useState, useEffect, useCallback, useRef, MouseEvent } from "react";
+import Hls from "hls.js";
 import markdownStyles from "./markdown-styles.module.css";
 
 type Props = {
@@ -33,9 +34,39 @@ export function PostBody({ content }: Props) {
     };
   }, [lightboxSrc, closeLightbox]);
 
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  // data-hls-src 属性を持つ <video> 要素に hls.js を適用
+  useEffect(() => {
+    const container = contentRef.current;
+    if (!container) return;
+
+    const videos = container.querySelectorAll<HTMLVideoElement>("video[data-hls-src]");
+    const hlsInstances: Hls[] = [];
+
+    videos.forEach((video) => {
+      const src = video.getAttribute("data-hls-src");
+      if (!src) return;
+
+      if (Hls.isSupported()) {
+        const hls = new Hls();
+        hls.loadSource(src);
+        hls.attachMedia(video);
+        hlsInstances.push(hls);
+      } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+        video.src = src;
+      }
+    });
+
+    return () => {
+      hlsInstances.forEach((hls) => hls.destroy());
+    };
+  }, [content]);
+
   return (
     <div className="max-w-2xl mx-auto">
       <div
+        ref={contentRef}
         className={markdownStyles["markdown"]}
         dangerouslySetInnerHTML={{ __html: content }}
         onClick={handleContentClick}
