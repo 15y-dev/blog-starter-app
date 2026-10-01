@@ -11,7 +11,7 @@ export const CATEGORIES: Category[] = [
   { slug: "ff15", name: "FF15" },
   { slug: "elpis", name: "星落" },
   { slug: "watched", name: "見たよ" },
-  { slug: "zakki", name: "雑記" },
+  { slug: "usagi", name: "うさぎ" },
 ];
 
 /** スラッグからカテゴリーを取得 */

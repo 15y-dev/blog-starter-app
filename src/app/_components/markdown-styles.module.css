@@ -42,6 +42,16 @@
   @apply text-accent-link-hover decoration-accent-link-hover/50;
 }
 
+.markdown img,
+.markdown video {
+  @apply my-6 max-h-[70vh];
+  object-fit: contain;
+}
+
 .markdown img {
   cursor: zoom-in;
+}
+
+.markdown video {
+  @apply w-full rounded-lg;
 }
